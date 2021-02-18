@@ -5,29 +5,23 @@ for _ in range(10):
     max_len = 1
     for _ in range(100):
         string = input()
+        arr.append(string)
+    for fixed_ax in range(100):
         flag = False
-        for m in range(100, 0, -1):
+        for m in range(99, 1, -1):
             if flag:
                 break
             else:
                 for i in range(100 - m + 1):
                     for j in range(i, i + m//2):
-                        if string[j] != string[i + m - (j - i + 1)]:
+                        if arr[j][fixed_ax] != arr[i + m - (j - i + 1)][fixed_ax]:
                             break
                     else:
                         if m > max_len:
                             max_len = m
                         flag = True
-        arr.append(string)
-    for col in range(100):
-        flag = False
-        for m in range(99, 0, -1):
-            if flag:
-                break
-            else:
-                for i in range(100 - m + 1):
                     for j in range(i, i + m//2):
-                        if arr[j][col] != arr[i + m - (j - i + 1)][col]:
+                        if arr[fixed_ax][j] != arr[fixed_ax][i + m - (j - i + 1)]:
                             break
                     else:
                         if m > max_len:
